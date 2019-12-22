@@ -24,7 +24,7 @@
 
     $sql = "INSERT INTO data_usuarios(Nombre, Apellido, Direccion) VALUES(:nom, :ape, :dir)";
     $resultado = $base->prepare($sql);
-    $resultado->execute(array(":nom"=>$nombre, "ape"=>$apellido, "dir"=>$direccion));
+    $resultado->execute(array(":nom" => $nombre, "ape" => $apellido, "dir" => $direccion));
     header("Location:index.php");
   }
   ?>
@@ -51,11 +51,13 @@
           <td><?php echo ($persona->Apellido) ?></td>
           <td><?php echo ($persona->Direccion) ?></td>
 
-          <td class="bot"><a href="borrar.php?Id=<?php echo ($persona->Id) ?> 
+          <td class="bot"><a href="borrar.php?id=<?php echo ($persona->Id) ?> 
           & nom=<?php echo ($persona->Nombre) ?> & ape=<?php echo ($persona->Apellido) ?> 
-          & dire=<?php echo ($persona->Direccion) ?> "><input type='button' name='del' id='del' value='Borrar'></a>
+          & dire=<?php echo ($persona->Direccion) ?> "><input type='button' name='del' id='del' value='Eliminar'></a>
           </td>
-          <td class='bot'><input type='button' name='up' id='up' value='Actualizar'></a></td>
+          <td class='bot'><a href="editar.php?id=<?php echo ($persona->Id) ?> 
+          & nom=<?php echo ($persona->Nombre) ?> & ape=<?php echo ($persona->Apellido) ?> 
+          & dire=<?php echo ($persona->Direccion) ?> "><input type='button' name='up' id='up' value='Editar'></a></td>
         </tr>
 
       <?php

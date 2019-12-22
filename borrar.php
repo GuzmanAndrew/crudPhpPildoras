@@ -9,8 +9,9 @@
 <body>
     <?php
        include("conexion.php");
-       $Id = $_GET["Id"]; 
-       $base->query("DELETE FROM data_usuarios WHERE Id = '$Id'")
+       $id = $_GET["id"]; 
+       $base->query("DELETE FROM data_usuarios WHERE Id = '$id'");
+       header("Location:index.php");
     ?>
 </body>
 </html>

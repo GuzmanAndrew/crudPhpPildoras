@@ -14,33 +14,34 @@
   <?php
   include("conexion.php");
   if (!isset($_POST["bot_actualizar"])) {
-    $Id = $_GET["Id"];
+    $id = $_GET["id"];
     $nom = $_GET["nom"];
     $ape = $_GET["ape"];
     $dire = $_GET["dire"];
   } else {
-    $Id = $_POST["Id"];
+    $id = $_POST["id"];
     $nom = $_POST["nom"];
     $ape = $_POST["ape"];
-    $dire = $_POST["dire"];
+    $dire = $_POST["dir"];
   }
 
   $sql = "UPDATE data_usuarios SET Nombre = :miNom, Apellido = :miApe, Direccion = :miDir WHERE Id = :miId";
   $resultado = $base->prepare($sql);
-  $resultado->execute(array(":miId"=>$Id, ":miNom"=>$nom, ":miApe"=>$ape, ":miDir"=>$dire));
+  $resultado->execute(array(":miId" => $id, ":miNom" => $nom, ":miApe" => $ape, ":miDir" => $dire));
 
   ?>
 
-  <p>
+  <div class="botonIniEditar">
+    <button><a href="index.php">Inicio</a></button>
+  </div>
 
-  </p>
   <p>&nbsp;</p>
   <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <table width="25%" border="0" align="center">
       <tr>
         <td></td>
         <td><label for="id"></label>
-          <input type="hidden" name="id" id="id" value="<?php echo ($Id) ?>"></td>
+          <input type="hidden" name="id" id="id" value="<?php echo ($id) ?>"></td>
       </tr>
       <tr>
         <td>Nombre</td>
